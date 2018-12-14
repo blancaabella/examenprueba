@@ -47,6 +47,6 @@ for i in range(1,len(l)+1):
     try:
         p = patient.objects.get(id = l[i-1][2])
     except ObjectDoesNotExist:
-        print "patient with id"+ str(l[i-1][2]) + " does not exist"
+        print "patient with id"+ str(l[i-1][2]) +  " does not exist"
     pr = prescription.objects.get_or_create(id = l[i-1][0], doctorId = d ,patientId = p )[0]
     pr.save()
