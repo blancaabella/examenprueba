@@ -55,7 +55,26 @@ para ello:
         from dj_static.import Cling
         application = Cling(get_wsgi_application())
       En settings.py meter:
-        STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
+        STATIC_ROOT = os.path.join(BASE_DIR, staticfiles)
+        TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+          'DIRS': [TEMPLATE_DIR],
+          TEMPLATES = [
+              {
+                  'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                  'DIRS': [TEMPLATE_DIR],
+                  'APP_DIRS': True,
+                  'OPTIONS': {
+                      'context_processors': [
+                          'django.template.context_processors.debug',
+                          'django.template.context_processors.request',
+                          'django.contrib.auth.context_processors.auth',
+                          'django.contrib.messages.context_processors.messages',
+                          'django.template.context_processors.media',
+                      ],
+                  },
+              },
+          ]
+
 
 
   1. heroku login
@@ -76,3 +95,22 @@ ahora vamos a hacer algo para que haya admin en herokuapp
 EN CASO DE QUE ALGO FALLE Y TE CREES UNA APP NUEVA:
 git remote rm heroku
 heroku git:remote -a newname
+
+
+cuando consigues hacer esto con mucho cariño, pasammos a lo del html
+
+creamos en la carpeta de fuera una carpeta llamada templates y lo metemos alli
+
+añadimos a las urls del proyecto y de la aplicacion lo correspondiente.
+en las del proyecto pondremos /nombre de la app y le metemos include de las urls de la apps
+en la app, que tendremos que crear el fichero nosotros, y habra algo de este estilo:
+  urlpatterns = [
+    url(r'^', views.show_prescription, name='show_prescription'),
+  ]
+
+tambien, tendemoso que crear una vista en views.py para que recolecte info que mopstrar.
+
+
+pasamos a la parte de los tests:
+
+copiamos en tests.py de la aplicacion otro cualquiera y modificamos con lo que nos pidem 

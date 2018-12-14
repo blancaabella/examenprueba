@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+{% if error %}
+  {{ error }}
+{% endif %}
+<table>
+{% for prescription in prescription %}
+  <tr>
+    <th>{{ prescription.id }}</th>
+    <td>{{ prescription.patientId.nameP }}</td>
+    <td>{{ prescription.doctorId.nameD }}</td>
+  </tr>
+{% endfor %}
+</table>
+</body>
+</html>
