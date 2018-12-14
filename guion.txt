@@ -53,9 +53,20 @@ para ello:
       En wsgi.py dentro del proyecto :
         from dj_static.import Cling
         application = Cling(get_wsgi_application())
+      En settings.py meter:
+        STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
 
   1. heroku login
   2. heroku create
   3. git add .
   4. git commit -m "first commit"
   5. git push heroku master
+
+
+ahora vamos a hacer algo para que haya admin en herokuapp
+
+1. heroku run bash
+2. python manage.py makemigrations
+3. python manage.py migrate
+4. python manage.py createsuperuser
+5. python populate.py 
