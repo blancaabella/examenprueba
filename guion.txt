@@ -72,3 +72,7 @@ ahora vamos a hacer algo para que haya admin en herokuapp
 3. python manage.py migrate
 4. python manage.py createsuperuser
 5. python populate.py
+
+EN CASO DE QUE ALGO FALLE Y TE CREES UNA APP NUEVA:
+git remote rm heroku
+heroku git:remote -a newname
