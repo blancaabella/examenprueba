@@ -46,6 +46,14 @@ crear las cosas con los campos dentro del get_or_create siempre que se pueda
 toca subir esto a heroku
 
 para ello:
+  ANTES DE NADA:
+    meter en la carpeta que vas a subir, sease la principal,
+      un Procfile que tienes que modificar con el nombre del proyecto
+      un requirements.txt que copias de algun otro proyecto
+      En wsgi.py dentro del proyecto :
+        from dj_static.import Cling
+        application = Cling(get_wsgi_application())
+
   1. heroku login
   2. heroku create
   3. git add .
