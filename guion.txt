@@ -1,0 +1,53 @@
+Crear repositorio en github
+
+Desde dentro, cerar un proyecto django nuevo: django startproject *SampleTest*
+
+Dentro del proyecto, crear una aplicacion: django-admin startapp application
+
+Cambiar nombre de la carpeta del proyecto a borrar y sacar a su altura lo que tiene dentro. Borrar borrar :)
+
+En settings.py, añadir en installed apps la aplicacion creada
+
+Copiar init.sh en tu carpeta y cambiar los nombres necesarios
+
+copiar lo siguiente en settings donde database borrando lo anterior
+
+      import dj_database_url
+      DATABASES={}
+      if os.getenv('SQLITE',False):
+          DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3', 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),}
+      else:
+          DATABASES['default']=dj_database_url.config(default='postgres://
+          alumnodb:alumnodb@localhost:5432/exam') DONDE PONE exam ES EL NOMBRE DE LA BASE DE DATOS!!
+
+Añadir a localhost localhost:8000 o la direccion que te den. Seguramente en algun momento haya que
+        añadir tambien el heroku. Se escribe de esta manera: u'localhost', u'127.0.0.1'
+
+Escribimos ya los models basandonos en los que tenemos de otras practicas
+
+Escribimos en el admin.py de la app para que se puedan registar las cositas alli, tambien copiando las otras
+
+Creamos el populate.py
+SUPER IMPORTANTE:
+  import os
+  os.environ.setdefault('DJANGO_SETTINGS_MODULE','*sampleTest*.settings') *nombre del proyecto*
+
+  import django
+  django.setup()
+tienen que ir en ese orden o peta
+
+super mas IMPORTANTE
+    el in range no te incluye el ultimo numero que le metes, asiq tienes que sumarle 1
+
+si en algun momento se tienen campos que incluyen otras clases, crear la funcion str en models para que aparezca algo reconocible de la instancia
+crear las cosas con los campos dentro del get_or_create siempre que se pueda
+
+
+toca subir esto a heroku
+
+para ello:
+  1. heroku login
+  2. heroku create
+  3. git add .
+  4. git commit -m "first commit"
+  5. git push heroku master
