@@ -25,7 +25,7 @@ SECRET_KEY = '(1f%-+wk)au$7&b*ka3%s)z-^fzi=ifa(&0&790a68qg&j1o##'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'localhost', u'127.0.0.1', u'mysterious-beach-78805.herokuapp.com']
+ALLOWED_HOSTS = [u'localhost', u'127.0.0.1', u'dry-depths-58481.herokuapp.com']
 
 
 # Application definition
